@@ -1,10 +1,10 @@
 {
-    "regions": ["bom1"],
+    "regions": ["sin1"],
     "builds": [
         {
             "src": "neon/wsgi.py",
             "use": "@vercel/python",
-            "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+            "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
         },
         {
             "src": "build.sh",
