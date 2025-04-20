@@ -8,7 +8,7 @@ class Category(models.Model):
     name = models.CharField(max_length=64, null=False)
     slug = models.SlugField(null=True, max_length=64, unique=True)
     image = models.ImageField(
-        upload_to='blog/categories/', default='blog/categories/default.webp')
+        upload_to='media/blog/categories/', default='media/blog/categories/default.webp')
 
     def __str__(self):
         return self.name
@@ -25,7 +25,7 @@ class Post(models.Model):
     excerpt = models.CharField(
         max_length=255, null=False)
     thumbnail = models.ImageField(
-        upload_to='blog/thumbnails/', default='blog/thumbnails/default')
+        upload_to='media/blog/thumbnails/', default='media/blog/thumbnails/default')
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True)
 

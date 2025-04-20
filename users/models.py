@@ -9,7 +9,7 @@ class Profile(models.Model):
     title = models.CharField(max_length=128, null=True,
                              default='user is too lazy to set title')
     profile_pic = models.ImageField(
-        upload_to='user/profiles', default='user/profiles/default')
+        upload_to='media/user/profiles', default='media/user/profiles/default')
     bio = models.CharField(max_length=1000, null=True,
                            default='user is too lazy to set bio')
     subscribed = models.BooleanField(default=False)
