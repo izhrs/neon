@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.text import slugify
 from django.views import View
-from verify_email.email_handler import send_verification_email
+from verify_email.email_handler import ActivationMailManager
 
 from blog.models import Post
 from users.forms import UserProfileForm, UserRegisterForm
@@ -30,7 +30,7 @@ class RegisterView(View):
     def post(self, request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            send_verification_email(request, form)
+            ActivationMailManager.send_verification_link(request, form)
             messages.success(
                 request, 'Account created! Please verify your email before login')
             return redirect('login')

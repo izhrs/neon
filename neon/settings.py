@@ -59,8 +59,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # Add the Cloudinary exception middleware
-    'blog.middleware.CloudinaryStorageExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'neon.urls'

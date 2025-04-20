@@ -103,7 +103,9 @@
                                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M5 12.24L.5 13.5L1.76 9L10 .8a1 1 0 0 1 1.43 0l1.77 1.78a1 1 0 0 1 0 1.42Z" />
                             </svg>
                         Edit profile</a>
-                        <a href="{% url 'logout' %}" class="btn btn-accent btn-sm normal-case">
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-accent btn-sm normal-case">
                             <svg class="h-4 w-4"
                                  xmlns="http://www.w3.org/2000/svg"
                                  width="24"
@@ -114,7 +116,10 @@
                                 <path d="M9 12h12l-3-3m0 6l3-3" />
                                 </g>
                             </svg>
-                        Logout</a>
+                            
+                        Logout
+                        </button>
+                    </form>
                     {% else %}
                         <a href="#" class="btn btn-primary btn-sm normal-case">follow</a>
                     {% endif %}
@@ -159,19 +164,21 @@
                                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M5 12.24L.5 13.5L1.76 9L10 .8a1 1 0 0 1 1.43 0l1.77 1.78a1 1 0 0 1 0 1.42Z" />
                                     </svg>
                                 </a>
-                                <a href="{% url 'logout' %}"
-                                   class="btn btn-accent btn-circle btn-md normal-case">
-                                    <svg class="h-4 w-4"
-                                         xmlns="http://www.w3.org/2000/svg"
-                                         width="24"
-                                         height="24"
-                                         viewBox="0 0 24 24">
-                                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                                        <path d="M14 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2" />
-                                        <path d="M9 12h12l-3-3m0 6l3-3" />
-                                        </g>
-                                    </svg>
-                                </a>
+                                <form action="{% url 'logout' %}" method="post">
+                                   {% csrf_token %}
+                                   <button type="submit" class="btn btn-accent btn-circle btn-md normal-case">
+                                        <svg class="h-4 w-4"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24">
+                                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                            <path d="M14 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2" />
+                                            <path d="M9 12h12l-3-3m0 6l3-3" />
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </form>
                             {% else %}
                                 <a href="#" class="btn btn-primary btn-md normal-case">follow</a>
                             {% endif %}
